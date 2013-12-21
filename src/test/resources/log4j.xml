@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.grinco.genemail">
+	<logger name="com.grinco.simpleCRM">
 		<level value="info" />
 	</logger>
 	

@@ -17,3 +17,5 @@ th {
 h2 {
 	background-color: rgb(101, 101, 101);
 }
+
+/* ul.nav li.dropdown:hover > ul.dropdown-menu{ display: block; } */

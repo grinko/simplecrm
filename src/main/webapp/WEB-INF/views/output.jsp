@@ -16,7 +16,7 @@
 
 
 	<div class="container-fluid">
-		<div class="row-fluid">
+		<div class="row-fluid" style="height: 100%;">
 			<div class="span8">
 				<div class="navbar navbar-inverse navbar-static-top">
 					<nav class="navbar-inner">
@@ -52,19 +52,22 @@
 							<th>#</th>
 							<th>Person Name</th>
 							<th>Person E-mail</th>
-							<th style="width: 120px;">Commands</th>
+							<th style="width: 80px;">Commands</th>
 						</tr>
 					</thead>
 					<c:forEach var="person" items="${personList}">
+					<c:set var="count" value="${count + 1}" scope="page"/>
 						<tr>
-							<td>*</td>
+							<td><c:out value="${count}" /></td>
 							<td><c:out value="${person.name}" /></td>
 							<td><c:out value="${person.email}" /></td>
 							<td>
+								<div class="btn-toolbar">
 								<div class="btn-group">
-									<a href="view?id=${person.id}" id="viewBtn" class="tblBtn btn btn-xs btn-info"><span class="glyphicon glyphicon-search"></span> view</a> 
-									<a href="edit?id=${person.id}" id="editBtn" class="tblBtn btn btn-xs btn-info"><span class="glyphicon glyphicon-pencil"></span> edit</a> 
-									<a href="delete?id=${person.id}" id="deleteBtn"	class="tblBtn btn btn-xs btn-info"><span class="glyphicon glyphicon-remove"></span> delete</a>
+									<a href="view?id=${person.id}" id="viewBtn" class="btn btn-info"><i class="icon-search icon-white"></i></a> 
+									<a href="edit?id=${person.id}" id="editBtn" class="btn btn-info"><i class="icon-pencil icon-white"></i></a> 
+									<a href="delete?id=${person.id}" id="deleteBtn"	class="btn btn-info"><i class="icon-trash icon-white"></i></a>
+								</div>
 								</div>
 							</td>
 						</tr>

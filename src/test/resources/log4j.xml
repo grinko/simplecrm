@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="com.grinco.simpleCRM">
+	<logger name="com.grinco.simplecrm">
 		<level value="info" />
 	</logger>
 	

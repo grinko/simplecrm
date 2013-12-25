@@ -25,6 +25,11 @@ public class PersonController {
         return "output"; 
     } 
      
+    @RequestMapping(value = "/output", method = RequestMethod.GET) 
+    public View returnToMain(ModelMap model) { 
+    	return new RedirectView("/simpleCRM");  
+    } 
+    
     @RequestMapping(value = "/save", method = RequestMethod.POST) 
     public View createPerson(@ModelAttribute Person person, ModelMap model) {
         if(StringUtils.hasText(person.getId())) {
@@ -32,7 +37,7 @@ public class PersonController {
         } else {
             personService.addPerson(person);
         }
-        return new RedirectView("/simplecrm"); 
+        return new RedirectView("/simpleCRM"); 
     }
       
     @RequestMapping(value = "/update", method = RequestMethod.POST) 
@@ -42,7 +47,7 @@ public class PersonController {
         } else {
             personService.addPerson(person);
         }
-        return new RedirectView("/simplecrm"); 
+        return new RedirectView("/simpleCRM"); 
     }
     
     @RequestMapping(value = "/edit", method = RequestMethod.GET) 
@@ -60,6 +65,6 @@ public class PersonController {
     @RequestMapping(value = "/delete", method = RequestMethod.GET) 
     public View deletePerson(@ModelAttribute Person person, ModelMap model) { 
         personService.deletePerson(person); 
-        return new RedirectView("/simplecrm"); 
+        return new RedirectView("/simpleCRM"); 
     }   
 }

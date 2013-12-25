@@ -15,9 +15,9 @@
 
 
 
-	<div class="container-fluid">
+	<div class="container-fluid" style="min-width: 800px;">
 		<div class="row-fluid" style="height: 100%;">
-			<div class="span8">
+			<div class="span8" style="height: 100%;">
 				<div class="navbar navbar-inverse navbar-static-top">
 					<nav class="navbar-inner">
 						<div class="row-fluid">

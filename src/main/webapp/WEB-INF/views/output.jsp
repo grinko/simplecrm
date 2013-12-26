@@ -31,7 +31,7 @@
 										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
 										<ul class="dropdown-menu navbar-inverse">
 											<li><a href="#">Help Contents</a></li>
-											<li><a href="#">About</a></li>
+											<li id="about" data-target="#modalId" data-toggle="modal"><a href="#">About</a></li>
 										</ul></li>
 								</ul>
 
@@ -89,7 +89,7 @@
 								<label class="checkbox">
 									<input type="checkbox" name="remember" value="1" /> Remember me
 								</label>
-								<button type="submit" class="btn btn-block btn-success"> Log In</button>
+								<button href="#" type="submit" class="btn btn-block btn-success"> Log In</button>
 							</form>
 						</div>
 					</div>
@@ -104,8 +104,30 @@
 			</div>
 		</div>
 	</div>
+	
+	<div class="modal fade hide" id="modalId" tabindex="-1" style="display: none;" aria-hidden="true">
+		<div class="modal-header">
+			<h3>About</h3>
+		</div>
+		<div class="modal-body">
+			<p>Simple CRM is a web application for working with portfolio of models.</p>
+			<p>You can write/read contact info, notes, upload photos and watch this with slideshow.</p>
+		</div>
+		<div class="modal-footer">
+			<button class="btn-default btn" type="button">OK</button>
+		</div>
+	</div>
 
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script type='text/javascript' src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<script type='text/javascript' src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
+	<script type="text/javascript">
+		$('#about').click(function() {
+			$('#le-alert').addClass('in'); // shows alert with Bootstrap CSS3 implem
+		});
+
+		$('.close').click(function() {
+			$(this).parent().removeClass('in'); // hides alert with Bootstrap CSS3 implem
+		});
+	</script>
 </body>
 </html>

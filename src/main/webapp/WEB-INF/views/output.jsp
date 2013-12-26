@@ -38,7 +38,7 @@
 							</div>
 							<div class="span4">
 								<form class="navbar-form pull-right">
-									<input type="text" class="search-query" placeholder="find in table..." />
+									<input type="text" class="search-query" placeholder=" Find in table..." />
 								</form>
 							</div>
 
@@ -75,6 +75,26 @@
 				</table>
 			</div>
 			<div class="span4" style="background-color: rgb(91, 192, 222); height: 100%;">
+			<br/>
+				<div class="container" style="margin-left: 60px">
+					<div class="row">
+						<div class="well span4">
+							<legend>Authorization</legend>
+							<div class="alert alert-error">
+								<a href="#" class="close" data-dismiss="alert">x</a> Invalid authentication 
+							</div>
+							<form method="POST" action="">
+								<input type="text" class="span12" placeholder="Login" name="login" />
+								<input type="password" class="span12" placeholder="Password" name="password" />
+								<label class="checkbox">
+									<input type="checkbox" name="remember" value="1" /> Remember me
+								</label>
+								<button type="submit" class="btn btn-block btn-success"> Log In</button>
+							</form>
+						</div>
+					</div>
+				</div>
+
 				<form action="save" method="post" class="navbar-form" style="margin-top: 80px; margin-left: 40px;">
 					<input type="hidden" name="id" /> <label for="name">Person's Name</label> 
 					<input type="text" id="name" name="name" /> <label for="email">Person E-mail</label> 

@@ -38,7 +38,7 @@
 							</div>
 							<div class="span4">
 								<form class="navbar-form pull-right">
-									<input type="text" class="search-query" placeholder=" find in table..." />
+									<input type="text" class="search-query span12" placeholder=" find in table..." />
 								</form>
 							</div>
 

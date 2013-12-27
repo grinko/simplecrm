@@ -38,7 +38,7 @@
 							</div>
 							<div class="span4">
 								<form class="navbar-form pull-right">
-									<input type="text" class="search-query" placeholder=" Find in table..." />
+									<input type="text" class="search-query" placeholder=" find in table..." />
 								</form>
 							</div>
 
@@ -110,24 +110,30 @@
 			<h3>About</h3>
 		</div>
 		<div class="modal-body">
-			<p>Simple CRM is a web application for working with portfolio of models.</p>
-			<p>You can write/read contact info, notes, upload photos and watch this with slideshow.</p>
+			<p>Simple CRM is a web application for working with portfolio of models. 
+			You can write/read contact info, notes, upload photos and watch this with slideshow.</p>
+			<p>Developed by grinko.nikolai@gmail.com</p>
 		</div>
 		<div class="modal-footer">
-			<button class="btn-default btn" type="button">OK</button>
+			<button id="closeAbout" class="btn-default btn" type="button">OK</button>
 		</div>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type='text/javascript' src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
 	<script type="text/javascript">
-		$('#about').click(function() {
+		/* $('#about').click(function() {
 			$('#le-alert').addClass('in'); // shows alert with Bootstrap CSS3 implem
 		});
 
 		$('.close').click(function() {
 			$(this).parent().removeClass('in'); // hides alert with Bootstrap CSS3 implem
-		});
+		}); */
+		$('#closeAbout').click(function() {
+			$('#modalId').modal('hide');
+		}
+				
+		);
 	</script>
 </body>
 </html>

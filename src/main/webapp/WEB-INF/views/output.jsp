@@ -46,7 +46,7 @@
 
 					</nav>
 				</div>
-				<table class="table table-hover table-condensed table-bordered" style="margin-top: 40px;">
+				<table  id="example" class="table table-hover table-condensed table-bordered" style="margin-top: 40px;">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -107,9 +107,11 @@
 	
 	<div class="modal fade hide" id="modalId" tabindex="-1" style="display: none;" aria-hidden="true">
 		<div class="modal-header">
+			<button id="closeAboutButton" class="close pull-right">&times;</button>
 			<h3>About</h3>
 		</div>
 		<div class="modal-body">
+		
 			<p>Simple CRM is a web application for working with portfolio of models. 
 			You can write/read contact info, notes, upload photos and watch this with slideshow.</p>
 			<p>Developed by grinko.nikolai@gmail.com</p>
@@ -121,6 +123,7 @@
 
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type='text/javascript' src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
+	<script type='text/javascript' src='<c:url value="/resources/js/jquery.dataTables.js"/>'></script>
 	<script type="text/javascript">
 		/* $('#about').click(function() {
 			$('#le-alert').addClass('in'); // shows alert with Bootstrap CSS3 implem
@@ -131,9 +134,14 @@
 		}); */
 		$('#closeAbout').click(function() {
 			$('#modalId').modal('hide');
-		}
-				
-		);
+		});
+		$('#closeAboutButton').click(function() {
+			$('#modalId').modal('hide');
+		});
+		
+		$(document).ready(function() {
+		    $('#example').dataTable();
+		} );
 	</script>
 </body>
 </html>

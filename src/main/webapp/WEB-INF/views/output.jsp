@@ -46,7 +46,7 @@
 
 					</nav>
 				</div>
-				<table  id="example" class="table table-hover table-condensed table-bordered" style="margin-top: 40px;">
+				<table  id="example" class="table table-hover table-condensed table-bordered" style="margin-top: 0px;">
 					<thead>
 						<tr>
 							<th>#</th>
@@ -124,14 +124,9 @@
 	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 	<script type='text/javascript' src='<c:url value="/resources/js/bootstrap.min.js"/>'></script>
 	<script type='text/javascript' src='<c:url value="/resources/js/jquery.dataTables.js"/>'></script>
+	<script type='text/javascript' src='<c:url value="/resources/js/bootstrap.datatables.pagination.js"/>'></script>
+	
 	<script type="text/javascript">
-		/* $('#about').click(function() {
-			$('#le-alert').addClass('in'); // shows alert with Bootstrap CSS3 implem
-		});
-
-		$('.close').click(function() {
-			$(this).parent().removeClass('in'); // hides alert with Bootstrap CSS3 implem
-		}); */
 		$('#closeAbout').click(function() {
 			$('#modalId').modal('hide');
 		});
@@ -139,8 +134,19 @@
 			$('#modalId').modal('hide');
 		});
 		
+		/* Default class modification */
+		$.extend( $.fn.dataTableExt.oStdClasses, {
+			"sSortAsc": "header headerSortDown",
+			"sSortDesc": "header headerSortUp",
+			"sSortable": "header"
+		} ); 
+
+		/* Table initialisation */
 		$(document).ready(function() {
-		    $('#example').dataTable();
+			$('#example').dataTable( {
+				"sDom": "<'row-fluid'<'span8'l><'span4'f>r>t<'row-fluid'<'span8'i><'span4'p>>", 
+				"sPaginationType": "bootstrap"
+			} );
 		} );
 	</script>
 </body>

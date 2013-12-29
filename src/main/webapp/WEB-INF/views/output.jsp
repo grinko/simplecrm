@@ -1,4 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <html>
 
 <link rel='stylesheet' type='text/css' media='screen' href='<c:url value="/resources/css/bootstrap.min.css"/>' />
@@ -52,7 +55,9 @@
 							<th>#</th>
 							<th>Person Name</th>
 							<th>Person E-mail</th>
+							<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
 							<th style="width: 80px;">Commands</th>
+							</sec:authorize>
 						</tr>
 					</thead>
 					<c:forEach var="person" items="${personList}">
@@ -61,6 +66,7 @@
 							<td><c:out value="${count}" /></td>
 							<td><c:out value="${person.name}" /></td>
 							<td><c:out value="${person.email}" /></td>
+							<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
 							<td>
 								<div class="btn-toolbar">
 								<div class="btn-group">
@@ -70,12 +76,15 @@
 								</div>
 								</div>
 							</td>
+							</sec:authorize>
 						</tr>
 					</c:forEach>
 				</table>
 			</div>
 			<div class="span4" style="background-color: rgb(91, 192, 222); height: 100%;">
 			<br/>
+			
+				<sec:authorize ifAllGranted="ROLE_ANONYMOUS">
 				<div class="container" style="margin-left: 60px">
 					<div class="row">
 						<div class="well span4">
@@ -83,24 +92,27 @@
 							<div class="alert alert-error">
 								<a href="#" class="close" data-dismiss="alert">x</a> Invalid authentication 
 							</div>
-							<form method="POST" action="">
-								<input type="text" class="span12" placeholder="Login" name="login" />
-								<input type="password" class="span12" placeholder="Password" name="password" />
+							<form method="POST" action="<c:url value='j_spring_security_check' />">
+								<input type="text" class="span12" placeholder="Login" name="j_username" />
+								<input type="password" class="span12" placeholder="Password" name="j_password" />
 								<label class="checkbox">
-									<input type="checkbox" name="remember" value="1" /> Remember me
+									<input type="checkbox" name="j_spring_security_remember_me" value="1" /> Remember me
 								</label>
-								<button href="#" type="submit" class="btn btn-block btn-success"> Log In</button>
+								<button type="submit" class="btn btn-block btn-success">Log In</button>
 							</form>
 						</div>
 					</div>
 				</div>
-
+				</sec:authorize>
+				
+				<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
+				<p style="margin-left: 40px"><a href="logout">Logout</a></p>
 				<form action="save" method="post" class="navbar-form" style="margin-top: 80px; margin-left: 40px;">
 					<input type="hidden" name="id" /> <label for="name">Person's Name</label> 
 					<input type="text" id="name" name="name" /> <label for="email">Person E-mail</label> 
 					<input type="text" id="email" name="email" /> <input type="submit" value="Submit" class="tblBtn btn btn-xs btn-info" />
 				</form>
-
+				</sec:authorize>
 			</div>
 		</div>
 	</div>

@@ -108,6 +108,7 @@
 				<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
 				<p style="margin-left: 40px"><a href="logout">Logout</a></p>
 				<form action="save" method="post" class="navbar-form" style="margin-top: 80px; margin-left: 40px;">
+                    <div>ADD NEW:</div>
 					<input type="hidden" name="id" /> <label for="name">Person's Name</label> 
 					<input type="text" id="name" name="name" /> <label for="email">Person E-mail</label> 
 					<input type="text" id="email" name="email" /> <input type="submit" value="Submit" class="tblBtn btn btn-xs btn-info" />

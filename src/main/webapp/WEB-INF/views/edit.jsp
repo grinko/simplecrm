@@ -12,7 +12,8 @@
 <form action="update" method="post">
 		<input type="hidden" name="id" value="${person.id}" /> 
 		<label for="name">Person Name</label> <input type="text" id="name" name="name" value="${person.name}"/> 
-		<label for="email">Person E-mail</label> <input type="text" id="email" name="email" value="${person.email}"/> 
+		<label for="email">Person E-mail</label> <input type="text" id="email" name="email" value="${person.email}"/>
+        <a href="/" class="btn btn-info">Back</a>
 		<input type="submit" value="Submit" class="tblBtn btn btn-xs btn-info"/>
 	</form>
 

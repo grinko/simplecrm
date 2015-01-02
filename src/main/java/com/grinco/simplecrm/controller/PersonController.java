@@ -10,18 +10,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.grinco.simplecrm.model.Person;
 import com.grinco.simplecrm.service.PersonService;
  
 @Controller   
-public class PersonController { 
-    
+public class PersonController {
+
+    static final Logger LOG = LoggerFactory.getLogger(PersonController.class);
+
     @Autowired
     private PersonService personService;
      
     @RequestMapping(value = "/", method = RequestMethod.GET) 
     public String getPersonList(ModelMap model) { 
-        model.addAttribute("personList", personService.listPerson()); 
+        model.addAttribute("personList", personService.listPerson());
+        LOG.info("personList.size=" + personService.listPerson().size()); //just for logs verifying
         return "output"; 
     } 
      

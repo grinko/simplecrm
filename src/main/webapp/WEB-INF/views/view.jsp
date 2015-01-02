@@ -29,7 +29,7 @@
 			</tr>
 		</tbody>
 	</table>
-<a href="/simpleCRM" class="btn btn-info">Back</a>
+<a href="/" class="btn btn-info">Back</a>
 
 
 <div class="carousel slide" id="fotoCarousel" style="width: 600px;">

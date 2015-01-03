@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <link rel='stylesheet' type='text/css' media='screen' href='<c:url value="/resources/css/bootstrap.css"/>' />
@@ -14,22 +16,22 @@
 	<table class="table table-hover table-condensed table-bordered persons">
 		<thead>
 			<tr>
-				<th>Property</th>
-				<th>Value</th>
+				<th><spring:message key="view.table.property"/></th>
+				<th><spring:message key="view.table.value"/></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Name</td>
+				<td><spring:message key="view.table.name"/></td>
 				<td><c:out value="${person.name}" /></td>
 			</tr>
 			<tr>
-				<td>E-mail</td>
+				<td><spring:message key="view.table.email"/></td>
 				<td><c:out value="${person.email}" /></td>
 			</tr>
 		</tbody>
 	</table>
-<a href="/" class="btn btn-info">Back</a>
+<a href="/" class="btn btn-info"><spring:message key="buttons.back"/></a>
 
 
 <div class="carousel slide" id="fotoCarousel" style="width: 600px;">

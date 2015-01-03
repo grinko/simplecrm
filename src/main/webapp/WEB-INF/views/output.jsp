@@ -2,6 +2,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 
 <link rel='stylesheet' type='text/css' media='screen' href='<c:url value="/resources/css/bootstrap.min.css"/>' />
@@ -16,8 +17,12 @@
 </head>
 <body>
 
-
-
+<span style="float: right">
+    <a href="?lang=en">en</a>
+    |
+    <a href="?lang=de">de</a>
+</span>
+<%--Current Locale : ${pageContext.response.locale}--%>
 	<div class="container-fluid" style="min-width: 800px;">
 		<div class="row-fluid" style="height: 100%;">
 			<div class="span8" style="height: 100%;">
@@ -28,20 +33,20 @@
 								<a class="brand" href="#">Simple CRM</a>
 								<ul class="nav navbar-nav">
 									<li class="divider-vertical"></li>
-									<li><a href="#">Home</a></li>
-									<li><a href="#">Something</a></li>
+									<li><a href="#"><spring:message key="menu.top.home"/></a></li>
+									<li><a href="#"><spring:message key="menu.top.something"/></a></li>
 									<li class="dropdown">
-										<a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
+										<a href="#" class="dropdown-toggle" data-toggle="dropdown"><spring:message key="menu.top.help"/><b class="caret"></b></a>
 										<ul class="dropdown-menu navbar-inverse">
-											<li><a href="#">Help Contents</a></li>
-											<li id="about" data-target="#modalId" data-toggle="modal"><a href="#">About</a></li>
+											<li><a href="#"><spring:message key="menu.top.help.content"/></a></li>
+											<li id="about" data-target="#modalId" data-toggle="modal"><a href="#"><spring:message key="menu.top.help.about"/></a></li>
 										</ul></li>
 								</ul>
 
 							</div>
 							<div class="span4">
 								<form class="navbar-form pull-right">
-									<input type="text" class="search-query span12" placeholder=" find in table..." />
+									<input type="text" class="search-query span12" placeholder="not working yet..." />
 								</form>
 							</div>
 
@@ -53,10 +58,10 @@
 					<thead>
 						<tr>
 							<th>#</th>
-							<th>Person Name</th>
-							<th>Person E-mail</th>
+							<th><spring:message key="person.table.name"/></th>
+							<th><spring:message key="person.table.email"/></th>
 							<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
-							<th style="width: 80px;">Commands</th>
+							<th style="width: 80px;"><spring:message key="person.table.commands"/></th>
 							</sec:authorize>
 						</tr>
 					</thead>
@@ -88,17 +93,17 @@
 				<div class="container" style="margin-left: 60px">
 					<div class="row">
 						<div class="well span4">
-							<legend>Authorization</legend>
+							<legend><spring:message key="main.authorization.authorization"/></legend>
 							<div class="alert alert-error">
-								<a href="#" class="close" data-dismiss="alert">x</a> Invalid authentication 
+								<a href="#" class="close" data-dismiss="alert">x</a> <spring:message key="main.authorization.invalid.authentication"/>
 							</div>
 							<form method="POST" action="<c:url value='j_spring_security_check' />">
 								<input type="text" class="span12" placeholder="Login" name="j_username" />
 								<input type="password" class="span12" placeholder="Password" name="j_password" />
 								<label class="checkbox">
-									<input type="checkbox" name="j_spring_security_remember_me" value="1" /> Remember me
+									<input type="checkbox" name="j_spring_security_remember_me" value="1" /> <spring:message key="main.authorization.remember.me"/>
 								</label>
-								<button type="submit" class="btn btn-block btn-success">Log In</button>
+								<button type="submit" class="btn btn-block btn-success"><spring:message key="main.authorization.login"/></button>
 							</form>
 						</div>
 					</div>
@@ -106,11 +111,11 @@
 				</sec:authorize>
 				
 				<sec:authorize ifAnyGranted="ROLE_ADMIN, ROLE_USER">
-				<p style="margin-left: 40px"><a href="logout">Logout</a></p>
+				<p style="margin-left: 40px"><a href="logout"><spring:message key="main.authorization.logout"/></a></p>
 				<form action="save" method="post" class="navbar-form" style="margin-top: 80px; margin-left: 40px;">
-                    <div>ADD NEW:</div>
-					<input type="hidden" name="id" /> <label for="name">Person's Name</label> 
-					<input type="text" id="name" name="name" /> <label for="email">Person E-mail</label> 
+                    <div><spring:message key="person.add.new"/></div>
+					<input type="hidden" name="id" /> <label for="name"><spring:message key="person.add.person.name"/></label>
+					<input type="text" id="name" name="name" /> <label for="email"><spring:message key="person.add.person.email"/></label>
 					<input type="text" id="email" name="email" /> <input type="submit" value="Submit" class="tblBtn btn btn-xs btn-info" />
 				</form>
 				</sec:authorize>

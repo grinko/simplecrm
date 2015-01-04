@@ -17,11 +17,7 @@
 </head>
 <body>
 
-<span style="float: right">
-    <a href="?lang=en">en</a>
-    |
-    <a href="?lang=de">de</a>
-</span>
+
 <%--Current Locale : ${pageContext.response.locale}--%>
 	<div class="container-fluid" style="min-width: 800px;">
 		<div class="row-fluid" style="height: 100%;">
@@ -45,9 +41,12 @@
 
 							</div>
 							<div class="span4">
-								<form class="navbar-form pull-right">
+								<%--<form class="navbar-form pull-right">
 									<input type="text" class="search-query span12" placeholder="not working yet..." />
-								</form>
+								</form>--%>
+                                <div class="pull-right" style="padding-top: 10px;">
+                                    <a href="?lang=en">ENG</a> | <a href="?lang=de">DEU</a>
+                                </div>
 							</div>
 
 						</div>
@@ -87,8 +86,10 @@
 				</table>
 			</div>
 			<div class="span4" style="background-color: rgb(91, 192, 222); height: 100%;">
-			<br/>
-			
+			    <br/>
+			    <%--<div style="align-content: center">
+                    <a href="?lang=en">ENG</a> | <a href="?lang=de">DEU</a>
+                </div>--%>
 				<sec:authorize ifAllGranted="ROLE_ANONYMOUS">
 				<div class="container" style="margin-left: 60px">
 					<div class="row">

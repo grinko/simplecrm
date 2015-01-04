@@ -17,8 +17,6 @@
 </head>
 <body>
 
-
-<%--Current Locale : ${pageContext.response.locale}--%>
 	<div class="container-fluid" style="min-width: 800px;">
 		<div class="row-fluid" style="height: 100%;">
 			<div class="span8" style="height: 100%;">
@@ -41,13 +39,18 @@
 
 							</div>
 							<div class="span4">
-								<%--<form class="navbar-form pull-right">
-									<input type="text" class="search-query span12" placeholder="not working yet..." />
-								</form>--%>
-                                <div class="pull-right" style="padding-top: 10px;">
-                                    <a href="?lang=en">ENG</a> | <a href="?lang=de">DEU</a>
-                                </div>
-							</div>
+                                    <ul id="lang-switcher" class="nav pull-right">
+                                        <li class="dropdown menu-item">
+                                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">${pageContext.response.locale}</a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="?lang=en">English</a></li>
+                                                <li><a href="?lang=de">Deutsch</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+
+
+                            </div>
 
 						</div>
 
@@ -87,9 +90,7 @@
 			</div>
 			<div class="span4" style="background-color: rgb(91, 192, 222); height: 100%;">
 			    <br/>
-			    <%--<div style="align-content: center">
-                    <a href="?lang=en">ENG</a> | <a href="?lang=de">DEU</a>
-                </div>--%>
+
 				<sec:authorize ifAllGranted="ROLE_ANONYMOUS">
 				<div class="container" style="margin-left: 60px">
 					<div class="row">
@@ -167,6 +168,7 @@
 				"sPaginationType": "bootstrap"
 			} );
 		} );
+
 	</script>
 </body>
 </html>

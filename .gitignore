@@ -2,3 +2,6 @@
 .settings
 simplecrm.iml
 .springBeans
+.project
+.classpath
+target
